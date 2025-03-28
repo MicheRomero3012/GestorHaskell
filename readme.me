@@ -1,19 +1,19 @@
-# Gestor de Proyectos en Haskell
+# Gestor de Proyectos Haskell
 
 ## Descripción
 
 Este es un sistema de gestión de proyectos desarrollado en Haskell que permite:
 
-- Crear y administrar proyectos
-- Gestionar tareas con prioridades y fechas límite
-- Asignar tareas a empleados
-- Seguir el progreso de las tareas (pendientes/completadas)
+- Crear y administrar proyectos  
+- Gestionar tareas con prioridades y fechas límite  
+- Asignar tareas a empleados  
+- Seguir el progreso de las tareas (pendientes/completadas)  
 
 ## Requisitos
 
-- **GHC** (Glasgow Haskell Compiler) 8.6 o superior
-- **Cabal** (sistema de build de Haskell)
-- **Paquetes Haskell:** `uuid`, `containers`
+- **GHC** (Glasgow Haskell Compiler) 8.6 o superior  
+- **Cabal** (sistema de build de Haskell)  
+- **Paquetes Haskell:** `uuid`, `containers`  
 
 ## Instalación de dependencias
 
@@ -59,10 +59,10 @@ ghci -package containers -package uuid Main.hs
 
 ## Estructura del código
 
-- **`Main.hs`**: Punto de entrada principal con ejemplos de uso
-- **`Gestor.hs`**: Módulo principal con toda la lógica de negocio
-  - Tipos de datos para Proyectos, Tareas y Empleados
-  - Funciones para gestionar el ciclo de vida completo
+- **Main.hs:** Punto de entrada principal con ejemplos de uso.  
+- **Gestor.hs:** Módulo principal con toda la lógica de negocio, incluyendo:  
+  - Tipos de datos para **Proyectos**, **Tareas** y **Empleados**.  
+  - Funciones para gestionar el ciclo de vida completo de los proyectos.  
 
 ## Ejemplo de uso en código
 
@@ -85,22 +85,23 @@ proyecto'' <- asignarTarea (tareaId tarea) eid proyecto'
 
 ## Solución de problemas
 
-### Error de paquetes no encontrados
+### Error de paquetes no encontrados:
 
 ```bash
 ghc-pkg list  # Ver paquetes instalados
 cabal install --force-reinstalls uuid containers
 ```
 
-### Error de módulos ocultos
+### Error de módulos ocultos:
 
 ```bash
 ghc -package-env=- -package uuid -package containers -o gestor Main.hs Gestor.hs
 ```
 
-### Limpiar compilaciones previas
+### Limpiar compilaciones previas:
 
 ```bash
 rm -f *.hi *.o gestor
 ```
 
+---
