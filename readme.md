@@ -1,21 +1,26 @@
-# Gestor de Proyectos Haskell
+# Gestor de Proyectos en Haskell
 
 ## Descripción
 
-Este es un sistema de gestión de proyectos desarrollado en Haskell que permite:
+Este es un sistema de **gestión de proyectos** desarrollado en **Haskell** que permite:
 
-- Crear y administrar proyectos  
-- Gestionar tareas con prioridades y fechas límite  
-- Asignar tareas a empleados  
-- Seguir el progreso de las tareas (pendientes/completadas)  
+- Crear y administrar proyectos con tareas.
+- Asignar tareas a empleados.
+- Marcar tareas como completadas o pendientes.
+- Visualizar el estado de los proyectos.
+- Eliminar tareas y proyectos del sistema.
+
+Este sistema sigue los principios de **programación funcional**, asegurando que todas las estructuras de datos sean **inmutables** y utilizando **tipos algebraicos** (`Maybe`, `Either`, listas) para manejar errores y representar datos.
 
 ## Requisitos
 
-- **GHC** (Glasgow Haskell Compiler) 8.6 o superior  
-- **Cabal** (sistema de build de Haskell)  
-- **Paquetes Haskell:** `uuid`, `containers`  
+Antes de ejecutar el programa, asegúrate de tener instalados los siguientes paquetes y herramientas:
 
-## Instalación de dependencias
+- **GHC** (Glasgow Haskell Compiler) 8.6 o superior.
+- **Cabal** (Sistema de build de Haskell).
+- **Paquetes adicionales:** `uuid`, `containers`.
+
+### Instalación de dependencias
 
 ```bash
 # Instalar GHC y Cabal (Ubuntu/Debian)
@@ -29,6 +34,8 @@ cabal install --lib uuid containers
 
 ## Compilación y ejecución
 
+Para compilar y ejecutar el programa, usa los siguientes comandos:
+
 ```bash
 # Compilar el proyecto
 ghc -package containers -package uuid -o gestor Main.hs Gestor.hs
@@ -37,18 +44,10 @@ ghc -package containers -package uuid -o gestor Main.hs Gestor.hs
 ./gestor
 ```
 
-## Comandos útiles adicionales
-
 ### Ejecutar sin compilar (usando runghc)
 
 ```bash
 runghc Main.hs
-```
-
-### Generar documentación (opcional)
-
-```bash
-haddock -h -o docs Gestor.hs
 ```
 
 ### Ejecutar en modo interactivo (GHCI)
@@ -59,29 +58,65 @@ ghci -package containers -package uuid Main.hs
 
 ## Estructura del código
 
-- **Main.hs:** Punto de entrada principal con ejemplos de uso.  
-- **Gestor.hs:** Módulo principal con toda la lógica de negocio, incluyendo:  
-  - Tipos de datos para **Proyectos**, **Tareas** y **Empleados**.  
-  - Funciones para gestionar el ciclo de vida completo de los proyectos.  
+El código está organizado de la siguiente manera:
 
-## Ejemplo de uso en código
+- **Main.hs** → Punto de entrada principal con ejemplos de uso.
+- **Gestor.hs** → Contiene la lógica del programa:
+  - Tipos de datos (`Proyecto`, `Tarea`, `Empleado`).
+  - Funciones de gestión de proyectos y tareas.
+  - Manejo de estados de tareas y validaciones.
+
+## Ejemplo de ejecución
 
 ```haskell
--- Crear proyecto
-pid <- nextRandom
-proyecto <- crearProyecto pid "Mi Proyecto"
+------ Creando Proyecto ------
+Proyecto creado: Software Manager
+Inicio: 2025-04-01 | Fin: 2025-12-31
 
--- Crear tarea
-tid <- nextRandom
-let tarea = Tarea tid "Implementar login" "2023-12-31" 1 Pendiente Nothing
+------ Creando Tareas ------
+Tarea agregada: Implementar Backend | Prioridad: Alta | Fecha Límite: 2025-06-30
+Tarea agregada: Diseñar UI | Prioridad: Media | Fecha Límite: 2025-05-15
 
--- Agregar tarea al proyecto
-proyecto' <- agregarTarea proyecto tarea
+------ Creando Empleado ------
+Empleado registrado: Juan Pérez | Cargo: Desarrollador Backend
 
--- Asignar tarea a empleado
-eid <- nextRandom
-proyecto'' <- asignarTarea (tareaId tarea) eid proyecto'
+------ Asignando Tarea ------
+Tarea "Implementar Backend" asignada a Juan Pérez
+
+------ Marcando Tarea Como Completada ------
+Tarea "Implementar Backend" completada ✅
+
+------ Contando Tareas ------
+Proyecto: Software Manager
+Completadas: 1 | Pendientes: 1
+
+------ Mostrando Proyectos Disponibles ------
+------ Proyecto ------
+Nombre: Software Manager
+Inicio: 2025-04-01 | Fin: 2025-12-31
+Tareas:
+  - Implementar Backend (✅ Completada) | Asignada a: Juan Pérez
+  - Diseñar UI (⏳ Pendiente) | No asignada
+
+------ Mostrando Empleados ------
+Empleado: Juan Pérez
+Tareas asignadas:
+  - Implementar Backend (✅ Completada)
+
+------ Eliminando Tarea ------
+Tarea "Diseñar UI" eliminada del proyecto.
+
+------ Eliminando Proyecto ------
+Proyecto "Software Manager" eliminado.
+Proyectos restantes: Ninguno.
 ```
+
+## Principios de Programación Funcional Aplicados
+
+- **Inmutabilidad** → Los proyectos y tareas nunca se modifican directamente, siempre se generan nuevas estructuras actualizadas.
+- **Funciones puras** → Cada función devuelve un nuevo estado sin afectar datos globales.
+- **Uso de tipos algebraicos** → `Maybe` y `Either` para manejar errores y datos opcionales.
+- **Expresividad** → Código modular, con funciones pequeñas y responsabilidad clara.
 
 ## Solución de problemas
 
