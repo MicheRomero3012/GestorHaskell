@@ -70,7 +70,7 @@ El código está organizado de la siguiente manera:
 
 ```haskell
 ------ Creando Proyecto ------
-Proyecto creado: Software Manager
+Proyecto creado: Gestión de Proyectos
 Inicio: 2025-04-01 | Fin: 2025-12-31
 
 ------ Creando Tareas ------
@@ -78,28 +78,28 @@ Tarea agregada: Implementar Backend | Prioridad: Alta | Fecha Límite: 2025-06-3
 Tarea agregada: Diseñar UI | Prioridad: Media | Fecha Límite: 2025-05-15
 
 ------ Creando Empleado ------
-Empleado registrado: Juan Pérez | Cargo: Desarrollador Backend
+Empleado registrado: Brian | Cargo: Desarrollador Backend
 
 ------ Asignando Tarea ------
-Tarea "Implementar Backend" asignada a Juan Pérez
+Tarea "Implementar Backend" asignada a Brian
 
 ------ Marcando Tarea Como Completada ------
 Tarea "Implementar Backend" completada ✅
 
 ------ Contando Tareas ------
-Proyecto: Software Manager
+Proyecto: Gestión de Proyectos
 Completadas: 1 | Pendientes: 1
 
 ------ Mostrando Proyectos Disponibles ------
 ------ Proyecto ------
-Nombre: Software Manager
+Nombre: Gestión de Proyectos
 Inicio: 2025-04-01 | Fin: 2025-12-31
 Tareas:
-  - Implementar Backend (✅ Completada) | Asignada a: Juan Pérez
+  - Implementar Backend (✅ Completada) | Asignada a: Brian
   - Diseñar UI (⏳ Pendiente) | No asignada
 
 ------ Mostrando Empleados ------
-Empleado: Juan Pérez
+Empleado: Brian
 Tareas asignadas:
   - Implementar Backend (✅ Completada)
 
@@ -107,7 +107,7 @@ Tareas asignadas:
 Tarea "Diseñar UI" eliminada del proyecto.
 
 ------ Eliminando Proyecto ------
-Proyecto "Software Manager" eliminado.
+Proyecto "Gestión de Proyectos" eliminado.
 Proyectos restantes: Ninguno.
 ```
 
@@ -140,3 +140,4 @@ rm -f *.hi *.o gestor
 ```
 
 ---
+
